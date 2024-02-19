@@ -5,9 +5,9 @@ def inp_end(endereco):
 
     rua = ""
     numero = ""
-  
+
     for caso in inp:
-       
+
         if any(char.isdigit() for char in caso):
             numero += caso + " "
         else:
@@ -26,7 +26,7 @@ while True:
         break
 
 
-    rua, numero = inp_end(endereco_input)
+    rua, numero = inp_end(end_input)
 
 
     print(f"Endereço: {end_input} -> Rua: {rua if rua else 'N/A'}, Número: {numero if numero else 'N/A'}")
