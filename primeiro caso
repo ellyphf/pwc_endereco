@@ -1,0 +1,33 @@
+import re
+
+def inp_end(endereco):
+    rua_re = r'^.*?(?= \d)'
+    numero_re = r'\d+.*$'
+
+
+    rua_verificar = re.search(rua_re, endereco)
+    numero_verificar = re.search(numero_re, endereco)
+
+    if rua_verificar and numero_verificar:
+        rua = rua_verificar.group().strip()
+        numero = numero_verificar.group().strip()
+        return rua, numero
+    else:
+        return None, None
+
+# Testes
+testes = [
+    "Miritiba 339",
+    "Babaçu 500",
+    "Cambuí 804B",
+    "Rio Branco 23",
+    "Quirino dos Santos 23 b",
+    "4, Rue de la République",
+    "100 Broadway Av",
+    "Calle Sagasta, 26",
+    "Calle 44 No 1991"
+]
+
+for endereco in testes:
+    rua, numero = inp_end(endereco)
+    print(f"Endereço: {endereco} -> Rua: {rua}, Número: {numero}")
