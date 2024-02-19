@@ -1,0 +1,32 @@
+import re
+
+def inp_end(endereco):
+    inp = endereco.split()
+
+    rua = ""
+    numero = ""
+  
+    for caso in inp:
+       
+        if any(char.isdigit() for char in caso):
+            numero += caso + " "
+        else:
+            rua += caso + " "
+
+    rua = rua.strip()
+    numero = numero.strip()
+
+    return rua, numero
+
+while True:
+    end_input = input("Insira o endereço ('x' para encerrar o programa): ")
+
+    if end_input.lower() == 'x':
+        print("O programa foi encerrado...")
+        break
+
+
+    rua, numero = inp_end(endereco_input)
+
+
+    print(f"Endereço: {end_input} -> Rua: {rua if rua else 'N/A'}, Número: {numero if numero else 'N/A'}")
