@@ -1,1 +1,30 @@
+import re
 
+def inp_end(endereco):
+  rua_re = r'^.*?(?= \d)'
+  numero_re = r'\d+.*$'
+
+
+  rua_verificar = re.search(rua_re, endereco)
+  numero_verificar = re.search(numero_re, endereco)
+
+
+  if rua_verificar and numero_verificar:
+    rua = rua_verificar.group().strip()
+    numero = numero_verificar.group().strip()
+    return rua, numero
+  else:
+    return None, None
+
+
+while True:
+    end_input = input("Insira o endereço ('x' para encerrar o programa): ")
+
+    if end_input.lower() == 'x':
+        print("O programa foi encerrado...")
+        break
+
+    rua, numero = inp_end(end_input)
+
+
+    print(f"Endereço: {end_input} -> Rua: {rua}, Número: {numero}")
